@@ -1,0 +1,98 @@
+{
+	"index.html": {
+		"resources": [
+			"images/zhuce.png",
+			"images/brand.jpg",
+			"js/mui.min.js",
+			"css/common.css",
+			"js/zepto.min.js",
+			"images/fanxian.png",
+			"fonts/mui.ttf",
+			"images/moren.png",
+			"css/mui.min.css",
+			"html/home.html",
+			"images/yaoqing.png",
+			"images/xing.png",
+			"html/order.html",
+			"html/my.html",
+			"images/order_shop@2x.png",
+			"images/account.png",
+			"images/order_defiultbrand@2x.png",
+			"images/my_portrait@3x.png",
+			"css/style.css",
+			"images/pp_30.png",
+			"images/pp_32.png",
+			"images/pp_09.png",
+			"images/pp_03.png",
+			"images/pp_06.png",
+			"images/pp_18.png",
+			"images/pp_21.png",
+			"images/pp_11.png",
+			"images/pp_23.png",
+			"images/pp_20.png",
+			"images/2xingxingkong.png",
+			"images/2xingxing.png",
+			"images/xingkong.png"
+		],
+		"refer": [
+			"html/business_message.html",
+			"html/order_detail.html",
+			"html/login.html"
+		]
+	},
+	"html/business_message.html": {
+		"resources": [
+			"css/style.css",
+			"js/zepto.min.js",
+			"fonts/mui.ttf",
+			"images/moren.png",
+			"css/mui.min.css",
+			"images/xing.png",
+			"js/mui.min.js"
+		],
+		"refer": [
+			"html/order_confirm.html"
+		]
+	},
+	"html/order_confirm.html": {
+		"resources": [
+			"images/order_add@2x.png",
+			"images/order_defiultbrand@2x.png",
+			"images/wallet_weixin@2x.png",
+			"css/common.css",
+			"images/wallet_zhifubao@2x.png",
+			"images/order_reduce@2x.png",
+			"images/wallet_@select@2x.png",
+			"images/wallet_@unselect@2x.png",
+			"fonts/mui.ttf",
+			"css/mui.min.css",
+			"js/mui.min.js",
+			"js/zepto.min.js"
+		]
+	},
+	"html/order_detail.html": {
+		"resources": [
+			"images/order_one@2x.png",
+			"images/order_two.png",
+			"images/order_three.png",
+			"css/common.css",
+			"fonts/mui.ttf",
+			"css/mui.min.css",
+			"js/mui.min.js",
+			"js/zepto.min.js",
+			"images/2xingxing.png"
+		]
+	},
+	"html/login.html": {
+		"resources": [
+			"fonts/mui.ttf",
+			"css/mui.min.css",
+			"css/style.css",
+			"js/mui.min.js",
+			"js/zepto.min.js"
+		],
+		"refer": [
+			"index.html"
+		]
+	}
+}

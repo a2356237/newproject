@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<title>首页</title>
+		<link rel="stylesheet" href="http://cache.amap.com/lbs/static/main1119.css" />
+		<script type="text/javascript" src="http://webapi.amap.com/maps?v=1.3&key=bee249d5da57ec31e7e8f80285246cad"></script>
+		<script type="text/javascript" src="http://cache.amap.com/lbs/static/addToolbar.js"></script>
+		<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+		<link rel="stylesheet" href="css/mui.min.css">
+		<link rel="stylesheet" href="css/common.css" />
+		<style>
+		.mui-bar{
+			background-color: #3497ff;
+			color: #FFFFFF;
+		}
+		.city, .mui-title{
+			color: #ffffff;
+			font-size: 14px;
+		}
+			.mui-control-content {
+				background-color: #F4F7FC;
+				min-height: 525px;
+			}
+			
+			.mui-control-content .mui-loading {
+				margin-top: 50px;
+			}
+			.mui-content{
+				height: 610px;
+				overflow: hidden;
+			}
+			.mui-tab-label{
+				font-family: "微软雅黑";
+			}
+		</style>
+	</head>
+
+	<body>
+		 <div id="tip" style="display: none;" ></div>
+		<header class="mui-bar mui-bar-nav">
+			<span class="city">北京</span>
+			<div class="mui-title"><span class="mui-icon mui-icon-location location"></span><span id="result">搜索中...</span></div>
+			<div class=" mui-icon mui-icon-email mui-pull-right"></div>
+		</header>
+		<div class="mui-content">
+			<iframe id="myLoadPage" src="http://www.baidu.com" style="width: 100%;height: 99%;border:none;"></iframe>
+		</div>
+		<nav class="mui-bar mui-bar-tab" style="background-color: #ffffff;">
+			<a id="defaultTab" class="mui-tab-item mui-active" data-url="html/home.html">
+				<span class="mui-icon mui-icon-home"></span>
+				<span class="mui-tab-label">首页</span>
+			</a>
+			<a class="mui-tab-item" data-url="html/order.html">
+				<span class="mui-icon mui-icon-email"><span class="mui-badge">9</span></span>
+				<span class="mui-tab-label">订单</span>
+			</a>
+			<a class="mui-tab-item" data-url="html/my.html">
+				<span class="mui-icon mui-icon-contact"></span>
+				<span class="mui-tab-label">我的</span>
+			</a>
+		</nav>
+
+	</body>
+	<script src="js/mui.min.js"></script>
+	<script src="js/zepto.min.js"></script>
+	<script>
+			mui.init(function(){
+				
+			});
+			(function() {
+				localStorage.setItem('name','张迎伟');
+				localStorage.setItem('tel','13821793696');
+				localStorage.setItem('address','河西区大沽南路国华大厦1507');
+				//初始化页面
+				Zepto("#myLoadPage").attr("src", "html/home.html");
+				//选项卡点击事件
+				Zepto(".mui-tab-item").on("touchstart", function() {
+//					var w 
+//					w=plus.nativeUI.showWaiting('请等待\n');
+					Zepto("#myLoadPage").attr("src", Zepto(this).data('url'));
+//					setTimeout(function(){
+//						w.close();
+//					},1000)
+					
+					
+				});
+				Zepto('#result').on('click',function(){
+					alert(Zepto(this).text())
+				})
+					
+					
+					
+					
+					
+					
+				})(mui);
+				
+				mui.plusReady(function() {
+					 var map, geolocation;
+    //加载地图，调用浏览器定位服务
+    map = new AMap.Map('container', {
+        resizeEnable: true
+    });
+    map.plugin('AMap.Geolocation', function() {
+        geolocation = new AMap.Geolocation({
+            enableHighAccuracy: true,//是否使用高精度定位，默认:true
+            timeout: 10000,          //超过10秒后停止定位，默认：无穷大
+            buttonOffset: new AMap.Pixel(10, 20),//定位按钮与设置的停靠位置的偏移量，默认：Pixel(10, 20)
+            zoomToAccuracy: true,      //定位成功后调整地图视野范围使定位位置及精度范围视野内可见，默认：false
+            buttonPosition:'RB'
+        });
+        map.addControl(geolocation);
+        geolocation.getCurrentPosition();
+        AMap.event.addListener(geolocation, 'complete', onComplete);//返回定位信息
+        AMap.event.addListener(geolocation, 'error', onError);      //返回定位出错信息
+    });
+    //解析定位结果
+    function onComplete(data) {
+        var str=['定位成功'];
+        str.push('经度：' + data.position.getLng());
+        str.push('纬度：' + data.position.getLat());
+        str.push('精度：' + data.accuracy + ' 米');
+        str.push('是否经过偏移：' + (data.isConverted ? '是' : '否'));
+        document.getElementById('tip').innerHTML = str.join('<br>');
+        
+        var lnglatXY = [data.position.getLng(),data.position.getLat()];
+        
+        regeocoder(lnglatXY);
+    }
+    
+    
+
+    
+    //解析定位错误信息
+     function regeocoder(lnglatXY) {  //逆地理编码
+     	 
+     	
+        var geocoder = new AMap.Geocoder({
+            radius: 1000,
+            extensions: "all"
+        });        
+        geocoder.getAddress(lnglatXY, function(status, result) {
+            if (status === 'complete' && result.info === 'OK') {
+                geocoder_CallBack(result);
+            }
+        });        
+        var marker = new AMap.Marker({  //加点
+            map: map,
+            position: lnglatXY
+        });
+        map.setFitView();
+    }
+    function geocoder_CallBack(data) {
+        var address = data.regeocode.formattedAddress; //返回地址描述
+        document.getElementById("result").innerHTML = address;
+       
+    }
+    
+   
+    //解析定位错误信息
+    function onError(data) {
+        document.getElementById('tip').innerHTML = '定位失败';
+    }
+				})
+			
+			function play(url){
+						mui.openWindow({
+						id: 'url',
+						url: 'html/'+url+'.html',
+						show: {
+							aniShow: 'none'
+						},
+						waiting: {
+							autoShow: false
+						}
+					});
+					}
+			
+		
+			
+	</script>
+
+
+</html>

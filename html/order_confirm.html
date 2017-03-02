@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>确认订单</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+		<link rel="stylesheet" href="../css/mui.min.css">
+		<link rel="stylesheet" href="../css/common.css" />
+		<style>
+		.mui-bar{
+			background-color: #3497ff;
+			color: #FFFFFF;
+		}
+		.mui-title{
+			color: #ffffff;
+			font-size: 14px;
+		}
+			.numtxt{
+				width: 60px !important;
+				height: 25px !important;
+				padding:0px !important;
+				margin-bottom: none !important;
+				margin: 0 5px;
+			}
+		#name{margin-left:0px;}
+		</style>
+	</head>
+	<body>
+		<header class="mui-bar mui-bar-nav">
+			<a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left" style="color: #FFFFFF;"></a>
+			<div class="mui-title">确认订单</div>
+		</header>
+		<div class="mui-content">
+			<div class="confirm-address">
+				<div class="confirm-address-left" ><span id='name'>张迎伟</span><span id='tel'>13821793669</span><p id='address'>河西区大沽南路国华大厦1507</p></div>
+				<div class="confirm-address-right" id='rebise'><div class="mui-icon mui-icon-arrowright"></div></div>
+			</div>
+			<div class="confirm-prompt">
+				提示： 无相应品牌空桶的用户，订水需押金（水站收取）
+			</div>
+			<div class="confirm-type">
+				<div class="confirm-name">易提水站</div>
+				<div class="confirm-details">
+					<div class="confirm-details-left"><img src="../images/order_defiultbrand@2x.png"></div>
+					<div class="confirm-details-right"><span>品牌：生命之水</span><br>类型：纯净水<br>规格：18.9L/桶<br>单价：<span style="color: #FE0000; font-size: 12px;">10</span>元<br>提示：产品以实物为准</div>
+					
+				</div>
+				<div class="confirm-number">
+					数量	<div class="confirm-number1"><span class="prev"><img src="../images/order_reduce@2x.png" height="15px"></span>&nbsp;<input type="number" id="block"  class="numtxt" value="1"/>&nbsp;<span class="next"><img src="../images/order_add@2x.png" height="15px"></span></div>
+				</div>
+				<div class="confirm-time">
+					配送时间<div class="confirm-time1">立即配送<span class="mui-icon mui-icon-arrowright"</div>
+				</div>
+			</div>
+		</div>
+		<div class="confirm-pay">
+			<div class="confirm-name">选择支付方式</div>
+			<div class="confirm-wx">
+				<div class="confirm-wx-img1"><img src="../images/wallet_weixin@2x.png" height="30px"></div>
+				<div class="confirm-wx-img2">微信支付</div>
+				<div class="confirm-wx-img3"><img src="../images/wallet_@unselect@2x.png" height="30px"></div>
+			</div>
+			<div class="confirm-zfb">
+				<div class="confirm-zfb-img1"><img src="../images/wallet_zhifubao@2x.png" height="30px"></div>
+				<div class="confirm-zfb-img2">支付宝支付</div>
+				<div class="confirm-zfb-img3"><img src="../images/wallet_@select@2x.png" height="30px"></div>
+			</div>
+		</div>
+		<div class="confirm-money">
+			<div class="price">原价<span>10元</span></div>
+			<div class="paid">实付<span>10元</span></div>
+		</div>
+		<div class="confirm">
+			<div class="confirm-content">确认支付</div>
+		</div>
+	</body>
+	<script type="text/javascript" src="../js/zepto.min.js" ></script>
+	<script type="text/javascript" src="../js/mui.min.js" ></script>
+	<script>
+	Zepto(function(){
+		
+		Zepto('#name').text(localStorage.getItem('name'))
+			Zepto('#tel').text(localStorage.getItem('tel'))
+			Zepto('#address').text(localStorage.getItem('address'))
+		 var o =Zepto(".numtxt").val();
+	Zepto(".prev").click(function(){
+		
+		o--;
+		 if(o<1){
+			  o=1;
+			 }
+		Zepto(".numtxt").val(o);
+			
+		})
+	Zepto(".next").click(function(){
+		
+		o++;
+		if(o>99){
+			o=99;
+			 }
+		Zepto(".numtxt").val(o);
+			
+		})
+ 
+			
+			Zepto(".confirm-wx").click(function(){
+				Zepto(this).find('.confirm-wx-img3 img').attr('src','../images/wallet_@select@2x.png');
+				Zepto('.confirm-zfb').find('.confirm-zfb-img3 img').attr('src','../images/wallet_@unselect@2x.png');
+			})
+			Zepto(".confirm-zfb").click(function(){
+				Zepto(this).find('.confirm-zfb-img3 img').attr('src','../images/wallet_@select@2x.png');
+				Zepto('.confirm-wx').find('.confirm-wx-img3 img').attr('src','../images/wallet_@unselect@2x.png');
+			})
+			Zepto("#rebise").on('click',function(){
+				mui.openWindow({
+						id: 'revise_message',
+						url: 'revise_message.html',
+						show: {
+							aniShow: 'none'
+						},
+						waiting: {
+							autoShow: false
+						}
+					});
+			})
+			
+			
+			
+			
+	})
+   
+
+	</script>
+</html>

@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>修改信息</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+		<link rel="stylesheet" href="../css/mui.min.css">
+		<link rel="stylesheet" href="../css/common.css" />
+		<style>
+			.mui-bar{
+			background-color: #3497ff;
+			color: #FFFFFF;
+		}
+		.mui-title{
+			color: #ffffff;
+			font-size: 14px;
+		}
+		.mui-btn{width:95%;border: none;}
+		</style>
+	</head>
+	<body style="background: #FFFFFF;">
+		<header class="mui-bar mui-bar-nav">
+			<a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left" style="color: #FFFFFF;"></a>
+			<div class="mui-title">修改信息</div>
+		</header>
+		<div class="mui-content">
+			<div class="mui-message" style=" padding-left: 32px;">
+				<span>收水人</span><input type="text" name="" id="username" placeholder="请输入收水人姓名">
+			</div>
+			<div class="mui-message">
+				<span>联系电话</span><input type="tel" name="" id="tel" placeholder="请输入收电话号码">
+			</div>
+			<div class="mui-message">
+				<span>所在区域</span><input type="text" name="" id="" placeholder="请输入所在区">
+			</div>
+			<div class="mui-message">
+				<span>收水地址</span><input type="text" name="" id="address" placeholder="请输入详细地址">
+			</div>
+		</div>
+		<div class="mui-btn">
+			<a href="#"><div class="btn">保存</div></a>
+		</div>
+		<div id="allmap"></div>
+	</body>
+	
+	<script type="text/javascript" src="../js/zepto.min.js" ></script>
+	<script type="text/javascript" src="../js/mui.min.js" ></script>
+	<script type="text/javascript">
+		(function(){
+			
+			Zepto('#username').val(localStorage.getItem('name'))
+			Zepto('#tel').val(localStorage.getItem('tel'))
+			Zepto('#address').val(localStorage.getItem('address'))
+			
+			Zepto('.btn').on('click',function(){
+				alert('保存成功！')
+				
+				
+				
+				
+			})
+			
+			
+			
+			
+			
+		})(mui)
+	</script>
+	
+	
+	
+</html>

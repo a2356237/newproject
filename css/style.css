@@ -1,0 +1,147 @@
+.city {
+	display: inline-block;
+	line-height: 44px;
+}
+
+.massage {
+	width: 50px;
+	height: 50px;
+	display: inline-block;
+}
+
+.content {
+	background: #FFFFFF;
+}
+
+.slider {
+	border-top: 1px solid #d0d0d0;
+	border-bottom: 1px solid #d0d0d0;
+}
+
+.clear {
+	clear: both;
+}
+
+
+/*首页*/
+
+.business,
+.brand {
+	width: 100%;
+	margin-top: 46px;
+	overflow: auto;
+	height: 340px;
+}
+
+.business ul {
+	list-style: none;
+	margin: 0px;
+	padding: 0px;
+}
+
+.business ul li {
+	padding: 10px;
+	border-bottom: 1px solid #d0d0d0;
+}
+
+.detail {
+	width: 100%;
+	height: 75px;
+	line-height: 20px;
+}
+
+.detail span {
+	float: right;
+}
+
+.detail span.moren{
+	display: inline-block;
+	float: left;
+	margin-right: 15px;
+	margin-top: 10px;
+}
+
+.detail span.xing {
+	height: 18px;
+}
+
+.detail span.xing img {
+	height: 18px;
+}
+
+.moren img {
+	width: 60px;
+	height: 60px;
+}
+
+.brand {
+	padding: 10px;
+	width: 100%;
+}
+
+.brand_list {
+	width: 25%;
+	display: inline-block;
+	text-align: center;
+	float: left;
+}
+
+.brand_img {
+	width: 72px;
+	height: 72px;
+	border-radius: 10px;
+	border: 1px solid #d0d0d0;
+	display: inline-block;
+	margin-bottom: 10px;
+	;
+}
+
+.brand_img img {
+	width: 70px;
+	height: 70px;
+	border-radius: 10px;
+}
+
+
+/*水站信息*/
+.xing1{ display: inline-block; margin-top: 5px; }
+.xing1 img{ height: 18px; }
+.product,.evaluate {
+	width: 100%;
+	overflow: auto;
+	height: 375px;
+}
+
+.product ul {
+	list-style: none;
+	margin: 0px;
+	padding: 0px;
+}
+
+.product ul li {
+	height: 80px;
+	font-size: 14px;
+	padding: 10px;
+	border-bottom: 1px solid #d0d0d0;
+}
+
+.product ul li img{ width: 60px; height: 60px;}
+.product ul li span:nth-child(1){ float: left;}
+.product ul li span:nth-child(2){ margin-left: 10px; line-height: 20px; float: left;}
+.product ul li span:nth-child(3){ float: right; margin-top: 20px;}
+.product ul li span.money{ color: red; margin-top: 0px; margin-right: 5px;}
+.evaluate ul{
+	list-style: none;
+	margin: 0px;
+	padding: 0px;
+}
+.evaluate ul li{font-size: 14px;
+	padding: 10px;
+	border-bottom: 1px solid #d0d0d0;line-height: 22px; color: #999;}
+.evaluate ul li img{ height: 18px;}
+.evaluate ul li span{ float: right;}
+.anonymity{ display: inline-block; background: #eeeeee; padding: 3px 6px;}
+
+.open{ color: #3497ff;}
+.content1{ background: #FFFFFF; padding: 10px; font-size: 14px; line-height: 24px;}
+.content1 p{ font-size: 16px; margin: 10px;}

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<title>首页</title>
+		<script src="js/jquery-1.11.2.min.js"></script>
+		<link href="../css/mui.min.css" rel="stylesheet" />
+		<link href="../css/style.css" rel="stylesheet" />
+		<style>
+			.backlogin{
+				width: 60%;
+				height: 50px;
+				border-radius: 5px;
+				background: #0062CC;
+				color: #fff;
+				line-height:50px;
+				text-align: center;
+				margin:15px auto;
+				
+			}
+		</style>
+	</head>
+
+	<body>
+		<header class="mui-bar mui-bar-nav">
+			<div class="mui-title">我的</div>
+		</header>
+		<div class="mui-content">
+			<div class="people" style="text-align: center;padding-top: 50px;">
+				<img src="../images/my_portrait@3x.png" height="80px"><br>
+				<span id='name'>13821799636</span>
+			</div>
+			<div class="backlogin" data-url='login'>退出登录</div>
+		</div>
+		
+	</body>
+	<script type="text/javascript" src="../js/mui.min.js" ></script>
+	<script type="text/javascript" src="../js/zepto.min.js" ></script>
+	<script>
+		(function(){
+			
+			if(localStorage.getItem('username')==null){
+				Zepto('#name').text('admin')
+			}else{
+				Zepto('#name').text(localStorage.getItem('username'));
+			}
+			
+			Zepto('.backlogin').on('click',function(){
+				if(window.confirm('你确定要退出登入吗？')){
+                 window.parent.play(Zepto(this).data('url'));
+              }else{
+                 
+                 return false;
+             }
+			})
+			
+		})(mui);
+	</script>
+</html>
